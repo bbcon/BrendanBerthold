@@ -1,0 +1,42 @@
+---
+title: About
+author: Brendan Berthold
+date: '2021-01-06'
+type: "widget_page"  # Page type is a Widget Page
+slug: about
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-01-06T20:47:23+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+---
+# An instance of the About widget.
+# Documentation: https://wowchemy.com/docs/page-builder/
+widget: about
+
+
+# Activate this widget? true/false
+active: false
+
+# This file represents a page section.
+headless: false
+
+# Order that this section appears on the page.
+weight: 2
+
+title: Biography
+
+# Choose the user profile to display
+# This should be the username (folder name) of a profile in your `content/authors/` folder.
+# See https://wowchemy.com/docs/get-started/#introduce-yourself
+author: admin
+---
