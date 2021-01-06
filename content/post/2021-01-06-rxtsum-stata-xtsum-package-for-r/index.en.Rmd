@@ -1,0 +1,53 @@
+---
+title: 'Rxtsum : Stata xtsum package for R'
+author: ''
+date: '2021-01-06'
+slug: rxtsum-stata-xtsum-package-for-r
+categories:
+  - packages
+  - R
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2021-01-06T23:14:35+01:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+**See [vignette](https://github.com/bbcon/Rxtsum) for more information**
+
+The package can be found under my [GitHub repo](https://github.com/bbcon/Rxtsum). It can be installed with the following commands:
+```
+devtools::install_github("Bridyshop/Rxtsum")
+library(Rxtsum)
+```
+
+
+# A few words about Rxtsum
+
+The package Rxtsum replicates the between/within standard deviation decomposition of Stata's xtsum package. In particular, it follows the procedure described here : http://stephenporter.org/files/xtsum_handout.pdf
+
+It is used as follows:
+
+```
+Rxtsum(data, id, col)
+```
+
+Where data is a dataframe which can be grouped (for example panel data where the group is the individual), id is the grouping variable, and col is a character vector for which you want the within/between decomposition. Obviously, col have to be numeric.
+
+
+An overview of the different functions of the package:
+
+```
+Rxtsum::Rxtsum(iris, Species, c("Sepal.Length", "Sepal.Width"))
+Rxtsum::f.between_df(iris, Species, c("Sepal.Length", "Sepal.Width"))
+Rxtsum::f.within_df(iris, Species, c("Sepal.Length", "Sepal.Width"))
+Rxtsum::f.overall_df(iris, Species, c("Sepal.Length", "Sepal.Width"))
+```
+
