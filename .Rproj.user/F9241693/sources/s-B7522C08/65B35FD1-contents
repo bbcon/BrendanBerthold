@@ -22,7 +22,7 @@ projects: []
 
 The package can be found under my [GitHub repo](https://github.com/bbcon/Rxtsum). It can be installed with the following commands:
 ```
-devtools::install_github("Bridyshop/Rxtsum")
+devtools::install_github("bbcon/Rxtsum")
 library(Rxtsum)
 ```
 
