@@ -8,7 +8,7 @@ categories:
   - R
 tags: []
 subtitle: ''
-summary: ''
+summary: 'This simple package allows to replicate the famous xtsum package from Stata with R'
 authors: []
 lastmod: '2021-01-06T23:14:35+01:00'
 featured: no
