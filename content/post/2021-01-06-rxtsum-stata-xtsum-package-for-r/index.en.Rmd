@@ -20,8 +20,6 @@ projects: []
 ---
 
 
-**See [vignette](https://github.com/bbcon/Rxtsum) for more information**
-
 The package can be found under my [GitHub repo](https://github.com/bbcon/Rxtsum). It can be installed with the following commands:
 ```
 devtools::install_github("Bridyshop/Rxtsum")
