@@ -1,9 +1,13 @@
 {
     "sortOrder": [
         {
+            "columnIndex": 4,
+            "ascending": false
+        },
+        {
             "columnIndex": 2,
             "ascending": true
         }
     ],
-    "path": "~/Dropbox/My Computer/Website/Blogdown_project/BrendanBerthold/content"
+    "path": "~/Dropbox/My Computer/Website/Blogdown_project/BrendanBerthold/content/post_fun"
 }
