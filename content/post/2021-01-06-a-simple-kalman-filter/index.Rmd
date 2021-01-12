@@ -200,9 +200,10 @@ For simplicity, we assume that the transition equation is known with certainty a
 With that information, we can generate $y_t$. Next graph provides a graphical representation.
 
 ```{r, include = T}
-ggplot() +
+library(plotly)
+ggplotly(ggplot() +
   ggtitle("Randomly Generated Data") +
-  geom_line(aes(x=1:n_periods, y=yt), colour = "black")
+  geom_line(aes(x=1:n_periods, y=yt), colour = "black"))
 ```
 
 

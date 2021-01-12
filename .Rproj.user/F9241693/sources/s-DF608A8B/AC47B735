@@ -3,7 +3,7 @@
     "path": "~/Dropbox/My Computer/Website/Blogdown_project/BrendanBerthold/content/post/2021-01-06-a-simple-kalman-filter/index.Rmd",
     "project_path": "content/post/2021-01-06-a-simple-kalman-filter/index.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "1036938232",
     "contents": "",
     "dirty": false,
     "created": 1609966743388.0,
@@ -11,15 +11,16 @@
     "relative_order": 6,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "10,7",
-        "scrollLine": "0"
+        "cursorPosition": "78,14",
+        "scrollLine": "67",
+        "last_setup_crc32": "DF608A8B40e62e7a"
     },
     "folds": "",
-    "lastKnownWriteTime": 1610400145,
+    "lastKnownWriteTime": 1610460694,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1610400145607,
+    "last_content_update": 1610460694089,
     "read_only": false,
     "read_only_alternatives": []
 }
