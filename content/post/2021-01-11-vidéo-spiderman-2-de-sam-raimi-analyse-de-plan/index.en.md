@@ -20,6 +20,6 @@ projects: []
 
 
 
-Cette vidéo de l'excellente chaine Youtube [Versus](https://www.youtube.com/channel/UCQZNBeNyF5dopi8mtJG2eEg) dissèque comment le réalisateur Sam Raimi a-t-il réussi à faire ressentir l'émotion d'une scène d'horreur dans un film tout public. Plus généralement, c'est une jolie introduction à l'art de la composition des plans au cinéma.
+Cette vidéo de l'excellente chaine Youtube [Versus](https://www.youtube.com/channel/UCQZNBeNyF5dopi8mtJG2eEg) dissèque comment le réalisateur Sam Raimi a réussi à faire ressentir l'émotion d'une scène d'horreur dans un film tout public. Plus généralement, c'est une jolie introduction à l'art de la composition des plans au cinéma.
 
 {{< youtube hjtqPsLECfA >}}

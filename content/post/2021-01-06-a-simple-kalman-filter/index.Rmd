@@ -12,11 +12,14 @@ tags:
 meta_img: images/image.png
 description: Description for the page
 bibliography: [bibliography_simpleKF.bib]
+editor_options: 
+  chunk_output_type: console
 ---
 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, include = FALSE)
+library(plotly)
 ```
 
 
@@ -200,10 +203,9 @@ For simplicity, we assume that the transition equation is known with certainty a
 With that information, we can generate $y_t$. Next graph provides a graphical representation.
 
 ```{r, include = T}
-library(plotly)
-ggplotly(ggplot() +
+ggplot() +
   ggtitle("Randomly Generated Data") +
-  geom_line(aes(x=1:n_periods, y=yt), colour = "black"))
+  geom_line(aes(x=1:n_periods, y=yt), colour = "black")
 ```
 
 
