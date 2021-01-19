@@ -38,7 +38,7 @@ superuser: true
 title: Brendan Berthold
 ---
 
-I am currently pursuing a PhD in Macroeconomics at the University of Lausanne. My research interests include applied macroeconomics (forecasting) and international macroeconomics and finance. Alongside my studies, I also work as an economic consultant for the Centre de Recherche Appliquée (CREA) where I am responsible for the production and analysis of quarterly industry forecasts. I also write educational content for iconomix, the education platform of the Swiss National Bank. Prior to starting my PhD, I worked as an intern for the Financial Stability Department of the Swiss National Bank in Bern. 
+I am currently pursuing a PhD in Macroeconomics at the University of Lausanne. My research interests include applied macroeconomics (forecasting) and international macroeconomics and finance. Alongside my studies, I also work as an economic consultant for the Centre de Recherche Appliquée (CREA) where I am responsible for the production and analysis of quarterly industry forecasts. I also write educational content for iconomix, the education platform of the Swiss National Bank. Prior to starting my PhD, I worked as an intern for the Financial Stability Department of the Swiss National Bank in Bern. I also take [pictures](https://brendanberthold.myportfolio.com) in my spare time.
 
 - {{< icon name="download" pack="fas" >}} Download my {{< staticref "pdf/CV_BB_simplified.pdf" "newtab" >}}CV{{< /staticref >}}
 - {{< icon name="link" pack="fas" >}} Connect on [{{< icon name="linkedin" pack="fab" >}}](https://www.linkedin.com/in/brendan-berthold-18a4a5118/).
