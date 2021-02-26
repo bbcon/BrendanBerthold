@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | Brendan Berthold</title>
+    <link>/post/</link>
+      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© All Rights Reserved 2021 - Brendan Berthold </copyright><lastBuildDate>Mon, 18 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hua848e79448441ec6a0fd16527faeebba_18289_512x512_fill_lanczos_center_2.png</url>
+      <title>Posts</title>
+      <link>/post/</link>
+    </image>
+    
+    <item>
+      <title>Iconomix : payment methods in Switzerland</title>
+      <link>/post/iconomix-payment-methods-in-switzerland/</link>
+      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>/post/iconomix-payment-methods-in-switzerland/</guid>
+      <description>&lt;p&gt;Parallel to my PhD studies, I work as an economic specialist for &lt;a href=&#34;https://www.iconomix.ch/fr/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;iconomix&lt;/a&gt;, the education platform of the Swiss National Bank. In particular, I regularly write educational content about economics aimed at secondary schools and beyond in Switzerland. &lt;a href=&#34;https://www2.iconomix.ch/videos/fr_v04-02/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;In this post&lt;/a&gt;, we talk about the different payment methods in Switzerland. In particular, I document several trends about their relative utilization and how it compares internationally. I also talk about Kenneth Rogoff&amp;rsquo;s book &amp;ldquo;The Curse of Cash&amp;rdquo;. Finally, I argue that even though cash is less used than before, it is still appreciated by the Swiss population, and is thus unlikely to disappear entirely in the near future. The article is in French.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Iconomix : the concept of offer and demand</title>
+      <link>/post/iconomix-the-concept-of-offer-and-demand/</link>
+      <pubDate>Mon, 18 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>/post/iconomix-the-concept-of-offer-and-demand/</guid>
+      <description>&lt;p&gt;Parallel to my PhD studies, I work as an economic specialist for &lt;a href=&#34;https://www.iconomix.ch/fr/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;iconomix&lt;/a&gt;, the education platform of the Swiss National Bank. In particular, I regularly write educational content about economics aimed at secondary schools and beyond in Switzerland. &lt;a href=&#34;https://www2.iconomix.ch/videos/fr_v07/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;In this post&lt;/a&gt;, we talk about the concept of offer and demand and how they interact in order to reach an equilibrium. I also give some practical real-world examples to highlight that the law of offer and demand is grounded in reality and is not merely theoretical. Any comments or remarks are warmly welcome. The article is in French.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>[Vidéo] : Spiderman 2 de Sam Raimi, analyse de plan</title>
+      <link>/post/video-spiderman-2-de-sam-raimi-analyse-de-plan/</link>
+      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>/post/video-spiderman-2-de-sam-raimi-analyse-de-plan/</guid>
+      <description>&lt;p&gt;Cette vidéo de l&amp;rsquo;excellente chaine Youtube &lt;a href=&#34;https://www.youtube.com/channel/UCQZNBeNyF5dopi8mtJG2eEg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Versus&lt;/a&gt; dissèque comment le réalisateur Sam Raimi a réussi à faire ressentir l&amp;rsquo;émotion d&amp;rsquo;une scène d&amp;rsquo;horreur dans un film tout public. Plus généralement, c&amp;rsquo;est une jolie introduction à l&amp;rsquo;art de la composition des plans au cinéma.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/hjtqPsLECfA&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>A Simple Kalman Filter</title>
+      <link>/post/2021-01-06-a-simple-kalman-filter/</link>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>/post/2021-01-06-a-simple-kalman-filter/</guid>
+      <description>
+
+
+&lt;p&gt;This document is generated with R-Markdown. All related files and code can be found in &lt;a href=&#34;https://github.com/bbcon/ASimpleKalmanFilterWithR&#34;&gt;GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;This document provides an intuitive and simple introduction to Kalman Filtering.&lt;/p&gt;
+&lt;p&gt;The document is organised as follows: the first section motivates the usage of a Kalman Filter in an economic context and reviews the related theory. In particular, it focuses on the key results and ideas behind it–as we shall see, the Kalman Filter’s key idea is in reality surprisingly easy to understand. The second section applies the Kalman Filter algorithm to an extremely simple (yet not trivial) state-space model characterised by an AR(1) process as the state equation. The idea behind this is to simplify as much as possible in order to focus on the key elements that will then reveal useful to understand more complex problems.&lt;/p&gt;
+&lt;p&gt;This document is mostly based on lecture Notes from Prof. Mark Watson (Princeton University) given as part of the program for Beginning Doctoral students in Economics in Gerzensee taught in March 2020 ((&lt;span class=&#34;citation&#34;&gt;Watson (2020)&lt;/span&gt;). The lecture notes are themselves heavily based on &lt;span class=&#34;citation&#34;&gt;Hamilton (1995)&lt;/span&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-kalman-filter-for-economics-motivation-theory-and-intuition&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;The Kalman Filter for Economics : Motivation, theory, and intuition&lt;/h1&gt;
+&lt;div id=&#34;motivation-and-simple-intuition&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Motivation and simple intuition&lt;/h2&gt;
+&lt;p&gt;We typically observe economic data over time. These data, however, are likely to be noisy. The Kalman Filter (KF) (in an economic context) usually considers two types of potential noise: measurement and structural noise. More precisely, the KF makes the assumption that observed data are subject to measurement errors and are in reality generated by an unobservable process. This unobservable process is known as the state (or transition) equation and is subject to some noise that we can refer to as “structural”. In that context, the KF is an algorithm that allows to filter out the measurement noise in order to learn more about the true generating process of the data. In particular, it can be used to learn more about so-called structural shocks which are of crucial importance in DSGE models for instance.&lt;/p&gt;
+&lt;p&gt;The Kalman Filter was first used in physics but is now widely popular in economics.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-theory&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The theory&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Notation&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The general form of the Kalman filter as presented in Hamilton Chapter 13 (add ref) is given by a “measurement equation”:
+&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+y_t = A&amp;#39;x_t + H&amp;#39;\xi_t + w_t 
+\end{align*}\]&lt;/span&gt;
+With &lt;span class=&#34;math inline&#34;&gt;\(E(w_tw_t&amp;#39;)=Q\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;And a transition (or state) equation:
+&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+\xi_t = F\xi_{t-1} + v_t 
+\end{align*}\]&lt;/span&gt;
+With &lt;span class=&#34;math inline&#34;&gt;\(E(v_tv_t&amp;#39;)=R\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;In words:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(y_t\)&lt;/span&gt; is the vector of observed variables (i.e. the data)&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(x_t\)&lt;/span&gt; is a vector of deterministic components (we won’t spend time on it in this document)&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\xi_t\)&lt;/span&gt; is the unobserved “state” variables&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(w_t\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(v_t\)&lt;/span&gt; are unobserved, mutually and serially uncorrelated noise variables (which usually follow a Normal Distribution)&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(A, H, R, F,\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(Q\)&lt;/span&gt; are non-random “system” variables matrices that may depend on unknown parameters (some of them can be retrieved using Maximum Likelihood estimations)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The general system defined by these two equations is flexible and can accomodate a variety of representation. For instance, a standard AR(p) process fits into the general notation in the following way:&lt;/p&gt;
+&lt;p&gt;Let &lt;span class=&#34;math inline&#34;&gt;\(y_t \sim AR(p)\)&lt;/span&gt;, that is:
+&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+y_t = \phi_1 y_{t-1} + \phi_2y_{t-2} + ... + \phi_py_{t-p} + \epsilon_t
+\end{align*}\]&lt;/span&gt;
+This process can be represented as a “state-space” model in the following way:
+&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+&amp;amp;\xi_t = \begin{bmatrix}
+y_t \\ y_{t-1} \\ \vdots \\ y_{t-p+1}
+\end{bmatrix} \\
+&amp;amp;F= \begin{bmatrix} 
+\phi_1 &amp;amp; \phi_2 &amp;amp; \ldots &amp;amp; \phi_{p-1} &amp;amp; \phi_p \\
+1 &amp;amp; 0 &amp;amp; \ldots &amp;amp; 0 &amp;amp; 0 \\
+0 &amp;amp; 1 &amp;amp;&amp;amp;&amp;amp; 0 \\
+\vdots &amp;amp; &amp;amp; \ddots &amp;amp; &amp;amp; \vdots \\
+0 &amp;amp;&amp;amp;&amp;amp;1&amp;amp;0
+\end{bmatrix} \\
+&amp;amp;v_t = \begin{bmatrix}
+\epsilon_t \\ 0 \\ \vdots \\ 0
+\end{bmatrix}
+\end{align*}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;And &lt;span class=&#34;math inline&#34;&gt;\(w_t=0, A=0,\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(H&amp;#39;=\begin{bmatrix}1 &amp;amp; 0 &amp;amp; \ldots &amp;amp; 0\end{bmatrix}\)&lt;/span&gt;&lt;/p&gt;
+&lt;div id=&#34;procedure-and-idea-of-the-kalman-filter&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Procedure and idea of the Kalman Filter&lt;/h3&gt;
+&lt;p&gt;Notation:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(y_{1:t} = \left\{y_i\right\}^t_{i=1}\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(\xi_{t|k} = E(\xi_t|y_{1:k})\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class=&#34;math inline&#34;&gt;\(P_{t|k}=Var(\xi_{t}|y_{1:k})\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In words, the Kalman filter is a recursive algorithm that constructs &lt;span class=&#34;math inline&#34;&gt;\(\xi_{t|t}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(P_{t|t}\)&lt;/span&gt; from known values in &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt;, that is &lt;span class=&#34;math inline&#34;&gt;\(y_t,x_t, \xi_{t-1|t-1}, P_{t-1|t-1}\)&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;To derive the filter, we assume that both &lt;span class=&#34;math inline&#34;&gt;\(w_t\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(v_t\)&lt;/span&gt; follow iid Gaussian process, that is:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{bmatrix}
+w_t \\ v_t
+\end{bmatrix} 
+ \sim N \left(\begin{bmatrix}
+0 \\
+0\end{bmatrix}, \begin{bmatrix}
+R &amp;amp; 0\\
+0 &amp;amp; Q \end{bmatrix}\right)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This notably implies that both &lt;span class=&#34;math inline&#34;&gt;\(y_t\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(\xi_t\)&lt;/span&gt; follow a &lt;em&gt;joint&lt;/em&gt; Normal distribution. Since errors are Gaussian, the best estimator (in the sense that it minimises the mean squared error) is given by the conditional expectation.&lt;/p&gt;
+&lt;p&gt;To find the conditional expectation of &lt;span class=&#34;math inline&#34;&gt;\(\xi_t\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y_t\)&lt;/span&gt; (that is &lt;span class=&#34;math inline&#34;&gt;\(\xi_{t|t}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y_{t|t}\)&lt;/span&gt;), we can use the following theorem of the conditional distribution of a multivariate normal:&lt;/p&gt;
+&lt;p&gt;Suppose that:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{bmatrix}
+z_1 \\ z_2
+\end{bmatrix} \sim N \left(\begin{bmatrix}\mu_1 \\ \mu_2 \end{bmatrix}, \begin{bmatrix}\Sigma_{11} &amp;amp;\Sigma_{12}\\\Sigma_{21}&amp;amp;\Sigma_{22}\end{bmatrix}\right)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Then:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[E(z_1|z_2) = \mu_1 + \Sigma_{12}\Sigma_{22}^{-1}(z_2 - \mu_2) \\
+Var(z_1|z_2) = \Sigma_{11} - \Sigma_{12}\Sigma_{22}^{-1}\Sigma_{21}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The application of this theorem is the &lt;strong&gt;key idea&lt;/strong&gt; of the Kalman Filter.&lt;/p&gt;
+&lt;p&gt;Defining &lt;span class=&#34;math inline&#34;&gt;\(z_1 = \xi_t\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(z_2 = y_t\)&lt;/span&gt;, and recognizing that &lt;span class=&#34;math inline&#34;&gt;\(\xi_t\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(y_t\)&lt;/span&gt; are jointly Normal conditional on past values, we can write the following:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{bmatrix}
+\xi_t \\ y_t
+\end{bmatrix} \Bigg | y_{1:t-1}\sim \mathcal{N}\left(\begin{bmatrix}
+\xi_{t|t-1} \\ y_{t|t-1}
+\end{bmatrix}, \begin{bmatrix}
+P_{t|t-1} &amp;amp; \Sigma_{\xi,y|t-1} \\\Sigma_{\xi,y|t-1} &amp;amp; \Sigma_{yy|t-1}
+\end{bmatrix}\right)\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Using the formula of the conditional normal:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+\xi_{t|t}= \xi_{t|t-1} + \Sigma_{\xi,y|t-1}\Sigma_{yy|t-1}^{-1}(y_t-y_{t|t-1}) \\
+P_{t|t} = P_{t|t-1} - \Sigma_{\xi,y|t-1}\Sigma_{yy|t-1}^{-1}\Sigma_{\xi,y|t-1}
+\end{align*}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Assuming &lt;span class=&#34;math inline&#34;&gt;\(\xi_{t-1|t-1}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(P_{t-1|t-1}\)&lt;/span&gt; are known, the Kalman Filter algorithm is given by:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+&amp;amp;\xi_{t|t-1} = F\xi_{t-1|t-1} \\
+&amp;amp;y_{t|t-1} = A&amp;#39;x_t + H&amp;#39;\xi_{t|t-1} \\
+&amp;amp;P_{t|t-1} = FP_{t-1|t-1}F&amp;#39; + Q \\
+&amp;amp;\Sigma_{yy|t-1} = H&amp;#39;P_{t|t-1}H + R \equiv h_t \\
+&amp;amp;\Sigma_{\xi,y|t-1}\Sigma_{yy|t-1}^{-1} = P_{t|t-1}H h_t^{-1} \equiv K_t \\
+&amp;amp;\eta_t = y_t-y_{t|t-1}
+\end{align*}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Applying the theorem, we get:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+&amp;amp;\xi_{t|t} = \xi_{t|t-1} + K_t \eta_t\\
+&amp;amp;P_{t|t} = P_{t|t-1} - K_t H&amp;#39;P_{t|t-1}
+\end{align*}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;If the process is covariance stationary, we can initialize it by assuming &lt;span class=&#34;math inline&#34;&gt;\(\xi_{0|0}=0\)&lt;/span&gt; and using a reasonable estimate of &lt;span class=&#34;math inline&#34;&gt;\(P_{0|0}\)&lt;/span&gt;. We can then retrieve &lt;span class=&#34;math inline&#34;&gt;\(\xi_{t|t}\)&lt;/span&gt;, and &lt;span class=&#34;math inline&#34;&gt;\(P_{t|t}\)&lt;/span&gt; for all &lt;span class=&#34;math inline&#34;&gt;\(t&amp;gt;0\)&lt;/span&gt; applying this procedure recursively.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;application&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Application&lt;/h2&gt;
+&lt;p&gt;To better understand the algorithm let us consider the following (uni-dimensional) simple example.&lt;/p&gt;
+&lt;p&gt;The state space model is of the form:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+&amp;amp;y_t = \phi \xi_t + w_t \\
+&amp;amp;\xi_t = \xi_{t-1} + v_t
+\end{align*}\]&lt;/span&gt;
+For simplicity, we assume that the transition equation is known with certainty and that &lt;span class=&#34;math inline&#34;&gt;\(\phi=\)&lt;/span&gt; 0.8. Moreover, we assume that &lt;span class=&#34;math inline&#34;&gt;\(w_t\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(v_t\)&lt;/span&gt; are i.i.d and independent of one another with &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2_w=\)&lt;/span&gt; 1 and &lt;span class=&#34;math inline&#34;&gt;\(\sigma^2_v=\)&lt;/span&gt; 1.&lt;/p&gt;
+&lt;p&gt;With that information, we can generate &lt;span class=&#34;math inline&#34;&gt;\(y_t\)&lt;/span&gt;. Next graph provides a graphical representation.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;index_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;The last step is to initalize the loop. We assume &lt;span class=&#34;math inline&#34;&gt;\(\xi_{0|0}=0\)&lt;/span&gt; because the process is covariance stationary, and &lt;span class=&#34;math inline&#34;&gt;\(P_{0|0}=1\)&lt;/span&gt; arbitrarily.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;the-algorithm&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;The algorithm&lt;/h2&gt;
+&lt;p&gt;Since &lt;span class=&#34;math inline&#34;&gt;\(\xi_{0|0}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(P_{0|0}\)&lt;/span&gt; are known, we can recursively compute &lt;span class=&#34;math inline&#34;&gt;\(\xi_{t|t}\)&lt;/span&gt; and &lt;span class=&#34;math inline&#34;&gt;\(P_{t|t}\)&lt;/span&gt; for &lt;span class=&#34;math inline&#34;&gt;\(t&amp;gt;0\)&lt;/span&gt; using the Kalman Filter algorithm:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+&amp;amp;\xi_{t|t-1}= \phi \xi_{t-1|t-1} \\
+&amp;amp;y_{t|t-1} = \xi_{t|t-1} \\
+&amp;amp;P_{t|t-1} = \phi^2P_{t-1|t-1} + \sigma_v^2 \\
+&amp;amp;h_t \equiv Var(y_t|t-1)  = P_{t|t-1} + \sigma^2_w \\
+&amp;amp;K_t = Cov(\xi_t,Y_t|t-1)\times h_t = P_{t|t-1}\times h_t^{-1} \\
+&amp;amp;\eta_t = y_t-y_{t|t-1}
+\end{align*}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Using this, we can get our next period KF forecast:&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[\begin{align*}
+\xi_{t|t} = \xi_{t|t-1} + K_t\times \eta_t \\
+P_{t|t} = P_{t|t-1} - K_t\cdot Cov(\xi_t,Y_t|t-1)
+\end{align*}\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;See R-script for its implementation in R.&lt;/p&gt;
+&lt;p&gt;The next graph provides a graphical representation resulting from this procedure. The blue line represents &lt;span class=&#34;math inline&#34;&gt;\(\xi_{t|t}\)&lt;/span&gt; for all &lt;span class=&#34;math inline&#34;&gt;\(t\)&lt;/span&gt; while the black one is the generated data.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;index_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;To check the validity of the Kalman Filter, one can for instance plot the true process (thus without measurement errors) against our freshly derived Kalman Filter. Note that, in general, this cannot be done as one typically does not the true generating process.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;index_files/figure-html/unnamed-chunk-4-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;To further check the validity of our Kalman Filter, we can plot the actual measurement noise (which we randomly generated) with the KF measurement noise (which is retrieved by subtracting our Kalman forecast to the the generated data). As we can see on the next plot, the two match quite closely, indicating that our Kalman Filter was able to filter out the measurement noise quite succesfully.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;index_files/figure-html/unnamed-chunk-5-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Another check is to compare the actual state noise (or structural shocks depending on the context) with the ones implied by the Kalman Filter. In general, this is not something that can be done as the process that generates the data is not known with certainty. Here, as we generated the data ourselves, it is however possible to perform such a test. State noise implied by the Kalman Filter is equal to our estimate of &lt;span class=&#34;math inline&#34;&gt;\(\xi_{t|t}\)&lt;/span&gt; minus the actual AR(1) process without the state (or structural) noise. Next plot provides a graphical representation.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;index_files/figure-html/unnamed-chunk-6-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;p&gt;This document provides a purposefully very simple application of a Kalman Filter. My wish was to be able to focus on the key ideas behind it. More complex version of this problem would for example be to consider a multi-dimensional state-space model with unknown parameters that would require to be estimated using a Maximum Likelihood estimation. I would, however, argue that considering such settings would not have added much value given that the aim of this document was to understand what is a Kalman Filter and what it does in words. I hope it is clearer now.&lt;/p&gt;
+&lt;p&gt;If you notice any typos, errors, or omissions, feel free to send a mail to this address: &lt;a href=&#34;mailto:brendan.berthold@gmail.com&#34; class=&#34;email&#34;&gt;brendan.berthold@gmail.com&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1 unnumbered&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references&#34;&gt;
+&lt;div id=&#34;ref-hamilton_1994&#34;&gt;
+&lt;p&gt;Hamilton, James D. 1995. “Time Series Analysis.” &lt;em&gt;International Journal of Forecasting&lt;/em&gt; 11 (3): 494–95. &lt;a href=&#34;https://ideas.repec.org/a/eee/intfor/v11y1995i3p494-495.html&#34;&gt;https://ideas.repec.org/a/eee/intfor/v11y1995i3p494-495.html&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;ref-watson_2020&#34;&gt;
+&lt;p&gt;Watson, Mark. 2020. “Program for Beginning Doctoral Students in Economics.” Gerzensee.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rxtsum : Stata xtsum package for R</title>
+      <link>/post/rxtsum-stata-xtsum-package-for-r/</link>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>/post/rxtsum-stata-xtsum-package-for-r/</guid>
+      <description>
+
+
+&lt;p&gt;The package can be found under my &lt;a href=&#34;https://github.com/bbcon/Rxtsum&#34;&gt;GitHub repo&lt;/a&gt;. It can be installed with the following commands:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;devtools::install_github(&amp;quot;bbcon/Rxtsum&amp;quot;)
+library(Rxtsum)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;a-few-words-about-rxtsum&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;A few words about Rxtsum&lt;/h1&gt;
+&lt;p&gt;The package Rxtsum replicates the between/within standard deviation decomposition of Stata’s xtsum package. In particular, it follows the procedure described here : &lt;a href=&#34;http://stephenporter.org/files/xtsum_handout.pdf&#34; class=&#34;uri&#34;&gt;http://stephenporter.org/files/xtsum_handout.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It is used as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Rxtsum(data, id, col)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Where data is a dataframe which can be grouped (for example panel data where the group is the individual), id is the grouping variable, and col is a character vector for which you want the within/between decomposition. Obviously, col have to be numeric.&lt;/p&gt;
+&lt;p&gt;An overview of the different functions of the package:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Rxtsum::Rxtsum(iris, Species, c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;))
+Rxtsum::f.between_df(iris, Species, c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;))
+Rxtsum::f.within_df(iris, Species, c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;))
+Rxtsum::f.overall_df(iris, Species, c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

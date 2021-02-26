@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fun | Brendan Berthold</title>
+    <link>/tag/fun/</link>
+      <atom:link href="/tag/fun/index.xml" rel="self" type="application/rss+xml" />
+    <description>fun</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© All Rights Reserved 2021 - Brendan Berthold </copyright><lastBuildDate>Mon, 11 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hua848e79448441ec6a0fd16527faeebba_18289_512x512_fill_lanczos_center_2.png</url>
+      <title>fun</title>
+      <link>/tag/fun/</link>
+    </image>
+    
+    <item>
+      <title>[Vidéo] : Spiderman 2 de Sam Raimi, analyse de plan</title>
+      <link>/post/video-spiderman-2-de-sam-raimi-analyse-de-plan/</link>
+      <pubDate>Mon, 11 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>/post/video-spiderman-2-de-sam-raimi-analyse-de-plan/</guid>
+      <description>&lt;p&gt;Cette vidéo de l&amp;rsquo;excellente chaine Youtube &lt;a href=&#34;https://www.youtube.com/channel/UCQZNBeNyF5dopi8mtJG2eEg&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Versus&lt;/a&gt; dissèque comment le réalisateur Sam Raimi a réussi à faire ressentir l&amp;rsquo;émotion d&amp;rsquo;une scène d&amp;rsquo;horreur dans un film tout public. Plus généralement, c&amp;rsquo;est une jolie introduction à l&amp;rsquo;art de la composition des plans au cinéma.&lt;/p&gt;
+
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+  &lt;iframe src=&#34;https://www.youtube.com/embed/hjtqPsLECfA&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; allowfullscreen title=&#34;YouTube Video&#34;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

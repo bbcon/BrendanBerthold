@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Packages | Brendan Berthold</title>
+    <link>/category/packages/</link>
+      <atom:link href="/category/packages/index.xml" rel="self" type="application/rss+xml" />
+    <description>Packages</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© All Rights Reserved 2021 - Brendan Berthold </copyright><lastBuildDate>Wed, 06 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hua848e79448441ec6a0fd16527faeebba_18289_512x512_fill_lanczos_center_2.png</url>
+      <title>Packages</title>
+      <link>/category/packages/</link>
+    </image>
+    
+    <item>
+      <title>Rxtsum : Stata xtsum package for R</title>
+      <link>/post/rxtsum-stata-xtsum-package-for-r/</link>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>/post/rxtsum-stata-xtsum-package-for-r/</guid>
+      <description>
+
+
+&lt;p&gt;The package can be found under my &lt;a href=&#34;https://github.com/bbcon/Rxtsum&#34;&gt;GitHub repo&lt;/a&gt;. It can be installed with the following commands:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;devtools::install_github(&amp;quot;bbcon/Rxtsum&amp;quot;)
+library(Rxtsum)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;a-few-words-about-rxtsum&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;A few words about Rxtsum&lt;/h1&gt;
+&lt;p&gt;The package Rxtsum replicates the between/within standard deviation decomposition of Stata’s xtsum package. In particular, it follows the procedure described here : &lt;a href=&#34;http://stephenporter.org/files/xtsum_handout.pdf&#34; class=&#34;uri&#34;&gt;http://stephenporter.org/files/xtsum_handout.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It is used as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Rxtsum(data, id, col)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Where data is a dataframe which can be grouped (for example panel data where the group is the individual), id is the grouping variable, and col is a character vector for which you want the within/between decomposition. Obviously, col have to be numeric.&lt;/p&gt;
+&lt;p&gt;An overview of the different functions of the package:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Rxtsum::Rxtsum(iris, Species, c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;))
+Rxtsum::f.between_df(iris, Species, c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;))
+Rxtsum::f.within_df(iris, Species, c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;))
+Rxtsum::f.overall_df(iris, Species, c(&amp;quot;Sepal.Length&amp;quot;, &amp;quot;Sepal.Width&amp;quot;))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
