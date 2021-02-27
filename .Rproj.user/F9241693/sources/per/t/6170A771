@@ -3,22 +3,22 @@
     "path": "~/Dropbox/My Computer/Website/Blogdown_project/BrendanBerthold/content/post/2021-02-27-k-fold-cross-validation-for-time-series-in-r-applications-to-var-models/index.en.Rmd",
     "project_path": "content/post/2021-02-27-k-fold-cross-validation-for-time-series-in-r-applications-to-var-models/index.en.Rmd",
     "type": "r_markdown",
-    "hash": "0",
+    "hash": "3200665097",
     "contents": "",
     "dirty": false,
     "created": 1614429223070.0,
     "source_on_save": false,
     "relative_order": 13,
     "properties": {
-        "cursorPosition": "8,5",
-        "scrollLine": "1"
+        "cursorPosition": "37,0",
+        "scrollLine": "31"
     },
     "folds": "",
-    "lastKnownWriteTime": 1614429626,
+    "lastKnownWriteTime": 1614434460,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1614429626713,
+    "last_content_update": 1614434460577,
     "read_only": false,
     "read_only_alternatives": []
 }

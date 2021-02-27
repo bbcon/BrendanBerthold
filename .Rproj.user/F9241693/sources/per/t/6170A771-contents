@@ -36,10 +36,12 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE) 
 ```
 
+
 # Introduction
 
 ```{r, warning = FALSE, include = FALSE}
-library(tidyverse)
+library(dplyr)
+Sys.setenv(`_R_S3_METHOD_REGISTRATION_NOTE_OVERWRITES_` = "false")
 ```
 
 
@@ -48,16 +50,16 @@ I recently wrote a little function that assesses the fit of Vector Auto-Regressi
 In this article, I provide a little summary of k-fold cross validation and provide an application in R using a dataset consisting of several US macroeconomic variables (from atStock2002). In more details, I evaluate the relative performance of several competing VAR models for quarterly US GDP using a k-fold cross validation approach adapted to timeseries. Results are purely technical and should not be taken at face value.
 
 
-The function used in this article can be downloaded as a package from my GitHub repo using the following command:
-```{r,echo=TRUE}
-#devtools::install_github('bbcon/kfoldCV4ts')
+The function used in this article (`accuracy.kfold`)can be downloaded as a package from my GitHub repo using the following command:
+```{r,echo=TRUE, eval = FALSE}
+devtools::install_github('bbcon/kfoldcv4ts')
 ```
 
 
 
 *Disclaimer: the function is meant to be easy to read such that the user can follow along each step of a k-fold cross validation. It is by no means meant to be efficient. Comments are welcome.*
 
-For the procedure to work on your computer, you need to install/load the following packages: `tidyverse`, `vars`, `forecast`, and `AER`.
+For the procedure to work on your computer, you need to install/load the following packages: `dplyr`, `vars`, `forecast`, and `AER`.
 
 # Some theory
 
@@ -76,7 +78,7 @@ It is thus natural to split the data in two parts: a training and a test dataset
 
 ## K-fold cross validation
 
-K-fold cross validation is precisely a way to split the data in a training and test dataset. The easiest way to understand k-fold cross validation is certainty to look at a graphical representation:
+K-fold cross validation is precisely a way to split the data in a training and test dataset. The easies way to understand k-fold cross validation is certainty to look at a graphical representation:
 
 (ref:source) [Stackexchange (Jatin Garg)](https://stats.stackexchange.com/questions/14099/using-k-fold-cross-validation-for-time-series-model-selection)
 
@@ -120,16 +122,14 @@ opt.lags.HQ = vars::VARselect(data_VAR)$selection[['HQ(n)']] # for later use
 
 We now use our function to perform a k-fold cross validation. Information about the function can found on [GitHub](link_to_github) ([source code of the function](link)) or by downloading the package. In a few w beords, the function splits the data in k training and test folds. It then estimates a VAR on each fold and returns various out-of-sample measures for each fold. The last element of the list is the k-th fit of the model and uses the whole dataset (minus the `n_ahead` last observations that are used as a test dataset) for the training of the model.
 ```{r, echo = TRUE, warning = FALSE}
-source('./R/f.kfoldcv4ts.R')
-#kfoldcv4ts::kfoldcv4ts(df.VAR = data_VAR, k=3, n_ahead = 6, lags = opt.lags.AIC, var_index = 1)
-f.accuracy.kfold(df.VAR = data_VAR, k=3, n_ahead = 6, lags = opt.lags.AIC, var_index = 1)
+kfoldcv4ts::accuracy.kfold(df.VAR = data_VAR, k=3, n_ahead = 6, lags = opt.lags.AIC, var_index = 1)
 ```
 
 We now compare the following three models in terms of MSE (using `k=3`). `model1` is the baseline method with the optimal number of lags chosen according to the AIC criterion while `model2` uses the optimal number of lags according to the HQ criterion. `model3` does not the 6th variable `r colnames(USMacroSW[5])` of the dataset to estimate the VAR.
 ```{r}
-model1 = f.accuracy.kfold(df.VAR = data_VAR, k=3, n_ahead = 6, lags = opt.lags.AIC, var_index = 1)
-model2 = f.accuracy.kfold(df.VAR = data_VAR, k=3, n_ahead = 6, lags = opt.lags.HQ, var_index = 1)
-model3 = f.accuracy.kfold(df.VAR = data_VAR[,1:5], k=3, n_ahead = 6, lags = 6, var_index = 1)
+model1 = kfoldcv4ts::accuracy.kfold(df.VAR = data_VAR, k=3, n_ahead = 6, lags = opt.lags.AIC, var_index = 1)
+model2 = kfoldcv4ts::accuracy.kfold(df.VAR = data_VAR, k=3, n_ahead = 6, lags = opt.lags.HQ, var_index = 1)
+model3 = kfoldcv4ts::accuracy.kfold(df.VAR = data_VAR[,1:5], k=3, n_ahead = 6, lags = 6, var_index = 1)
 ```
 
 We summarise the results in the following table:
