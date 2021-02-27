@@ -28,11 +28,11 @@ bibliography: 'bibliography.bib'
 <div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>I recently wrote a little package (<code>kfoldcv4ts</code>) that assesses the fit of Vector Autoregressive (henceforth VAR) models for forecasting by performing a k-fold cross validation adapted to timeseries. I thought that it may be of interest to some people, so I decided to write a little article and share it. As of now, the function <code>kfoldcv4ts::accuracy.kfold</code> has only been tested with <code>varest</code> objects from the package <code>vars</code>. However, the function being quite simple, it should not be a problem to adapt it to other types of forecasting model.</p>
-<p>In this article, I provide a little summary of k-fold cross validation and an application in R using a dataset consisting of several US macroeconomic variables (from <span class="citation">Stock and Watson (2007)</span>). For illustration purpose, I evaluate the relative performance of several competing VAR models for predicting quarterly US GDP using a k-fold cross validation approach adapted to timeseries. I also provide the commands to install my package <code>kfoldcv4ts</code> that allows to perform the k-fold cross validation for timeseries (function <code>accuracy.kfold</code>). The package makes use of several existing packages, most notably the excellent <code>forecast</code> and <code>vars</code> package.</p>
-<p>The function used in this article (<code>accuracy.kfold</code>) can be downloaded as a package from my GitHub repo using the following command:</p>
+<p>In this article, I provide a little summary of k-fold cross validation and an application in R using a dataset consisting of several US macroeconomic variables (from <span class="citation">Stock and Watson (2007)</span>). For illustration purpose, I evaluate the relative performance of several competing VAR models for predicting quarterly US GDP using a k-fold cross validation approach adapted to timeseries.</p>
+<p>I provide the commands to install my package <code>kfoldcv4ts</code> that allows to perform the k-fold cross validation for timeseries (function <code>accuracy.kfold</code>). The package makes use of several existing packages, most notably the excellent <code>forecast</code> and <code>vars</code> package.</p>
 <pre class="r"><code>devtools::install_github(&#39;bbcon/kfoldcv4ts&#39;)</code></pre>
 <p><em>Disclaimer: the function is meant to be easy to read such that the user can follow along each step of a k-fold cross validation. It is by no means meant to be efficient. Comments are welcome.</em></p>
-<p>For the procedure to work on your computer, you need to install/load the following packages: <code>dplyr</code>, <code>vars</code>, <code>forecast</code>, and <code>AER</code>. Most of these packages are also required for installing the <code>kfoldcv4ts</code> package.</p>
+<p>To follow along the steps of this article, you need to install/load the following packages: <code>dplyr</code>, <code>vars</code>, <code>forecast</code>, and <code>AER</code>. Most of these packages are also required for installing the <code>kfoldcv4ts</code> package.</p>
 </div>
 <div id="some-theory" class="section level1">
 <h1>Some theory</h1>
@@ -59,7 +59,7 @@ Where <span class="math inline">\(n\)</span> is the number of observations, <spa
 <h1>Application to US GDP in R</h1>
 <p>We use macroeconomic time series from the <code>AER</code> package. The dataset (<code>USMacro</code>) is from the <span class="citation">Stock and Watson (2007)</span>. It consists of 7 time series from 1957 to 2005 available at the quarterly frequency. The following commands load the data in R:</p>
 <pre class="r"><code>data(&quot;USMacroSW&quot;, package = &#39;AER&#39;)</code></pre>
-<p>As an exercise, we decide to estimate VAR consisting of the first 6 variables:</p>
+<p>As an exercise, we decide to estimate a VAR consisting of the first 6 variables:</p>
 <pre class="r"><code>t(colnames(USMacroSW)[1:6])</code></pre>
 <pre><code>##      [,1]    [,2]  [,3]     [,4]    [,5]    [,6]    
 ## [1,] &quot;unemp&quot; &quot;cpi&quot; &quot;ffrate&quot; &quot;tbill&quot; &quot;tbond&quot; &quot;gbpusd&quot;</code></pre>
