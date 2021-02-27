@@ -19,6 +19,7 @@ image:
   focal_point: ''
   preview_only: no
 projects: []
+bibliography: 'bibliography.bib'
 ---
 
 ---
@@ -47,10 +48,10 @@ Sys.setenv(`_R_S3_METHOD_REGISTRATION_NOTE_OVERWRITES_` = "false")
 
 I recently wrote a little package (`kfoldcv4ts`) that assesses the fit of Vector Autoregressive (henceforth VAR) models for forecasting by performing a k-fold cross validation adapted to timeseries. I thought that it may be of interest to some people, so I decided to write a little article and share it. As of now, the function `kfoldcv4ts::accuracy.kfold` has only been tested with `varest` objects from the package `vars`. However, the function being quite simple, it should not be a problem to adapt it to other types of forecasting model.
 
-In this article, I provide a little summary of k-fold cross validation and provide an application in R using a dataset consisting of several US macroeconomic variables (from atStock2002). For illustration purpose, I evaluate the relative performance of several competing VAR models for predicting quarterly US GDP using a k-fold cross validation approach adapted to timeseries. I also provide the commands to install my package `kfoldcv4ts` that allows to perform the k-fold cross validation for timeseries (function `accuracy.kfold`). The package makes use of several existing packages, most notably the excellent `forecast` and `vars` package.
+In this article, I provide a little summary of k-fold cross validation and an application in R using a dataset consisting of several US macroeconomic variables (from @Stock2007). For illustration purpose, I evaluate the relative performance of several competing VAR models for predicting quarterly US GDP using a k-fold cross validation approach adapted to timeseries. 
 
 
-The function used in this article (`accuracy.kfold`) can be downloaded as a package from my GitHub repo using the following command:
+I provide the commands to install my package `kfoldcv4ts` that allows to perform the k-fold cross validation for timeseries (function `accuracy.kfold`). The package makes use of several existing packages, most notably the excellent `forecast` and `vars` package.
 ```{r,echo=TRUE, eval = FALSE}
 devtools::install_github('bbcon/kfoldcv4ts')
 ```
@@ -59,7 +60,7 @@ devtools::install_github('bbcon/kfoldcv4ts')
 
 *Disclaimer: the function is meant to be easy to read such that the user can follow along each step of a k-fold cross validation. It is by no means meant to be efficient. Comments are welcome.*
 
-For the procedure to work on your computer, you need to install/load the following packages: `dplyr`, `vars`, `forecast`, and `AER`. Most of these packages are also required for installing the `kfoldcv4ts` package.
+To follow along the steps of this article, you need to install/load the following packages: `dplyr`, `vars`, `forecast`, and `AER`. Most of these packages are also required for installing the `kfoldcv4ts` package.
 
 # Some theory
 
@@ -89,7 +90,7 @@ In words, k-fold cross validation amounts to separate the data in k training and
 
 # Application to US GDP in R
 
-We use macroeconomic time series from the `AER` package. The dataset (`USMacro`) is from the atStock2007. It consists of 7 time series from 1957 to 2005 available at the quarterly frequency. The following commands load the data in R:
+We use macroeconomic time series from the `AER` package. The dataset (`USMacro`) is from the @Stock2007. It consists of 7 time series from 1957 to 2005 available at the quarterly frequency. The following commands load the data in R:
 ```{r, warning = FALSE, include=FALSE}
 library('AER')
 ```
@@ -99,7 +100,7 @@ data("USMacroSW", package = 'AER')
 ```
 
 
-As an exercise, we decide to estimate VAR consisting of the first 6 variables:
+As an exercise, we decide to estimate a VAR consisting of the first 6 variables:
 ```{r, echo = TRUE}
 t(colnames(USMacroSW)[1:6])
 ```
@@ -120,7 +121,7 @@ opt.lags.HQ = vars::VARselect(data_VAR)$selection[['HQ(n)']] # for later use
 
 
 
-We now use our function to perform a k-fold cross validation. Information about the function can found on [GitHub](link_to_github) ([source code of the function](link)) or by downloading the package. In a few w beords, the function splits the data in k training and test folds. It then estimates a VAR on each fold and returns various out-of-sample measures for each fold. The last element of the list is the k-th fit of the model and uses the whole dataset (minus the `n_ahead` last observations that are used as a test dataset) for the training of the model.
+We now use our function to perform a k-fold cross validation. The source code of the function can be found on my [GitHub](https://github.com/bbcon/kfoldcv4ts/blob/master/R/accuracy.kfold.R)) or by running `kfoldcv4ts::accuracy.kfold` in the console once the package has been installed. In a few words, the function splits the data in k training and test folds. It then estimates a VAR on each fold and returns various out-of-sample measures for each fold. The last element of the list is the k-th fold and uses the whole dataset (minus the `n_ahead` last observations that are used as a test dataset) for the training of the model.
 ```{r, echo = TRUE, warning = FALSE}
 kfoldcv4ts::accuracy.kfold(df.VAR = data_VAR, k=3, n_ahead = 6, lags = opt.lags.AIC, var_index = 1)
 ```
@@ -148,3 +149,5 @@ kableExtra::kable(table_summary, caption = 'MSE for each model and each fold') %
 ```
 
 We can note several interesting things. First, Model 1 seems to be the best performing in terms of MSE when estimated on the largest possible dataset (i.e. $k=3$). Additionally, we can note that more data significantly improves the fit of the model (from 1.96 to 0.14). We can also see that model 2 seems to perform particularly badly when the training dataset is relatively small (k=1). In terms of average MSE over the 3 folds, Model 3 seems to perform the best and may be considered as a good alternative to Model 1, even though it has one regressor less. This provides an example on the risk of overfitting.
+
+# References
