@@ -45,12 +45,12 @@ Sys.setenv(`_R_S3_METHOD_REGISTRATION_NOTE_OVERWRITES_` = "false")
 ```
 
 
-I recently wrote a little function that assesses the fit of Vector Auto-Regressive (henceforth VAR) models for forecasting by performing a k-fold cross validation adapted to timeseries. I thought that it may be of interest to some people, so I decided to write a little article and share it. As of now, the function has only been tested with `varest` objects from the package `vars`. However, the function being quite simple, it should not be a problem to adapt it to other types of forecasting model.
+I recently wrote a little package (`kfoldcv4ts`) that assesses the fit of Vector Autoregressive (henceforth VAR) models for forecasting by performing a k-fold cross validation adapted to timeseries. I thought that it may be of interest to some people, so I decided to write a little article and share it. As of now, the function `kfoldcv4ts::accuracy.kfold` has only been tested with `varest` objects from the package `vars`. However, the function being quite simple, it should not be a problem to adapt it to other types of forecasting model.
 
-In this article, I provide a little summary of k-fold cross validation and provide an application in R using a dataset consisting of several US macroeconomic variables (from atStock2002). In more details, I evaluate the relative performance of several competing VAR models for quarterly US GDP using a k-fold cross validation approach adapted to timeseries. Results are purely technical and should not be taken at face value.
+In this article, I provide a little summary of k-fold cross validation and provide an application in R using a dataset consisting of several US macroeconomic variables (from atStock2002). For illustration purpose, I evaluate the relative performance of several competing VAR models for predicting quarterly US GDP using a k-fold cross validation approach adapted to timeseries. I also provide the commands to install my package `kfoldcv4ts` that allows to perform the k-fold cross validation for timeseries (function `accuracy.kfold`). The package makes use of several existing packages, most notably the excellent `forecast` and `vars` package.
 
 
-The function used in this article (`accuracy.kfold`)can be downloaded as a package from my GitHub repo using the following command:
+The function used in this article (`accuracy.kfold`) can be downloaded as a package from my GitHub repo using the following command:
 ```{r,echo=TRUE, eval = FALSE}
 devtools::install_github('bbcon/kfoldcv4ts')
 ```
@@ -59,7 +59,7 @@ devtools::install_github('bbcon/kfoldcv4ts')
 
 *Disclaimer: the function is meant to be easy to read such that the user can follow along each step of a k-fold cross validation. It is by no means meant to be efficient. Comments are welcome.*
 
-For the procedure to work on your computer, you need to install/load the following packages: `dplyr`, `vars`, `forecast`, and `AER`.
+For the procedure to work on your computer, you need to install/load the following packages: `dplyr`, `vars`, `forecast`, and `AER`. Most of these packages are also required for installing the `kfoldcv4ts` package.
 
 # Some theory
 
