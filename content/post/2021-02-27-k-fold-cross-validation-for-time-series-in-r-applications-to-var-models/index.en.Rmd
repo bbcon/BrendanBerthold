@@ -10,7 +10,7 @@ categories:
 tags:
   - pro
 subtitle: ''
-summary: 'The K-fold cross validation allows to quantify the performance of a forecasting model. This article explains the implementation of this procedure for timeseies in the context of a VAR model. It makes use of the kfoldcv4ts package that I created.'
+summary: 'The K-fold cross validation allows to quantify the performance of a forecasting model. This article explains the implementation of this procedure for timeseries in the context of a VAR model. It makes use of the kfoldcv4ts package that I created.'
 authors: []
 lastmod: '2021-02-27T13:33:42+01:00'
 featured: no
@@ -79,7 +79,7 @@ It is thus natural to split the data in two parts: a training and a test dataset
 
 ## K-fold cross validation
 
-K-fold cross validation is precisely a way to split the data in a training and test dataset. The easies way to understand k-fold cross validation is certainty to look at a graphical representation:
+K-fold cross validation is precisely a way to split the data in a training and test dataset. The easiest way to understand k-fold cross validation is certainty to look at a graphical representation:
 
 (ref:source) [Stackexchange (Jatin Garg)](https://stats.stackexchange.com/questions/14099/using-k-fold-cross-validation-for-time-series-model-selection)
 
