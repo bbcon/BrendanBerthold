@@ -10,7 +10,7 @@ headless: true
 weight: 1
 
 title: Welcome!
-subtitle: 'Welcome on my personal website! Here, you will find information about my professional and personal life. You can also find several articles I wrote, mainly about (macroeconomic) forecasting, the economy in general, and the statistical software R. This website is also a way to document things I did that I think could be of interest to others. You can find a list of topics just below. Enjoy!'
+subtitle: 'Welcome to my personal website! My name is Brendan Berthold and I am currently a PhD Candidate in Economics at the University of Lausanne. Here, you can learn a bit more about me. In particular, you can  find several articles I wrote, mainly about (macroeconomic) forecasting, the economy in general, and the statistical software R. This website is a way to document things I did which I think could be of interest to others. You can find a list of topics just on the right. Enjoy!'
 
 
 content:
