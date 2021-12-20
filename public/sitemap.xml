@@ -34,7 +34,42 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2021-01-18T16:51:35+01:00</lastmod>
+    <lastmod>2021-02-27T13:33:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/category/forecasting/</loc>
+    <lastmod>2021-02-27T13:33:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/k-fold-cross-validation-for-time-series-in-r-applications-to-var-models/</loc>
+    <lastmod>2021-02-27T13:33:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/category/packages/</loc>
+    <lastmod>2021-02-27T13:33:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2021-02-27T13:33:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tag/pro/</loc>
+    <lastmod>2021-02-27T13:33:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/category/r/</loc>
+    <lastmod>2021-02-27T13:33:42+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2021-02-27T13:33:42+01:00</lastmod>
   </url>
   
   <url>
@@ -50,21 +85,6 @@
   <url>
     <loc>/post/iconomix-the-concept-of-offer-and-demand/</loc>
     <lastmod>2021-01-18T16:41:28+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2021-01-18T16:51:35+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tag/pro/</loc>
-    <lastmod>2021-01-18T16:51:35+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2021-01-18T16:51:35+01:00</lastmod>
   </url>
   
   <url>
@@ -85,16 +105,6 @@
   <url>
     <loc>/category/macroeconometrics/</loc>
     <lastmod>2021-01-06T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/category/packages/</loc>
-    <lastmod>2021-01-06T23:14:35+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/category/r/</loc>
-    <lastmod>2021-01-06T23:14:35+01:00</lastmod>
   </url>
   
   <url>
@@ -226,6 +236,10 @@
   
   <url>
     <loc>/post_pro/</loc>
+  </url>
+  
+  <url>
+    <loc>/research/</loc>
   </url>
   
 </urlset>

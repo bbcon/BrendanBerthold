@@ -5,12 +5,180 @@
     <link>/tag/pro/</link>
       <atom:link href="/tag/pro/index.xml" rel="self" type="application/rss+xml" />
     <description>pro</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© All Rights Reserved 2021 - Brendan Berthold </copyright><lastBuildDate>Mon, 18 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><copyright>© All Rights Reserved 2021 - Brendan Berthold </copyright><lastBuildDate>Sat, 27 Feb 2021 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/images/icon_hua848e79448441ec6a0fd16527faeebba_18289_512x512_fill_lanczos_center_2.png</url>
       <title>pro</title>
       <link>/tag/pro/</link>
     </image>
+    
+    <item>
+      <title>K-fold cross validation for time series in R</title>
+      <link>/post/k-fold-cross-validation-for-time-series-in-r-applications-to-var-models/</link>
+      <pubDate>Sat, 27 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>/post/k-fold-cross-validation-for-time-series-in-r-applications-to-var-models/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;introduction&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;I recently wrote a little package (&lt;code&gt;kfoldcv4ts&lt;/code&gt;) that assesses the fit of Vector Autoregressive (henceforth VAR) models for forecasting by performing a k-fold cross validation adapted to timeseries. I thought that it may be of interest to some people, so I decided to write a little article and share it. As of now, the function &lt;code&gt;kfoldcv4ts::accuracy.kfold&lt;/code&gt; has only been tested with &lt;code&gt;varest&lt;/code&gt; objects from the package &lt;code&gt;vars&lt;/code&gt;. However, the function being quite simple, it should not be a problem to adapt it to other types of forecasting model.&lt;/p&gt;
+&lt;p&gt;In this article, I provide a little summary of k-fold cross validation and an application in R using a dataset consisting of several US macroeconomic variables (from &lt;span class=&#34;citation&#34;&gt;Stock and Watson (2007)&lt;/span&gt;). For illustration purpose, I evaluate the relative performance of several competing VAR models for predicting quarterly US GDP using a k-fold cross validation approach adapted to timeseries.&lt;/p&gt;
+&lt;p&gt;I provide the commands to install my package &lt;code&gt;kfoldcv4ts&lt;/code&gt; that allows to perform the k-fold cross validation for timeseries (function &lt;code&gt;accuracy.kfold&lt;/code&gt;). The package makes use of several existing packages, most notably the excellent &lt;code&gt;forecast&lt;/code&gt; and &lt;code&gt;vars&lt;/code&gt; package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;#39;bbcon/kfoldcv4ts&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Disclaimer: the function is meant to be easy to read such that the user can follow along each step of a k-fold cross validation. It is by no means meant to be efficient. Comments are welcome.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;To follow along the steps of this article, you need to install/load the following packages: &lt;code&gt;dplyr&lt;/code&gt;, &lt;code&gt;vars&lt;/code&gt;, &lt;code&gt;forecast&lt;/code&gt;, and &lt;code&gt;AER&lt;/code&gt;. Most of these packages are also required for installing the &lt;code&gt;kfoldcv4ts&lt;/code&gt; package.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;some-theory&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Some theory&lt;/h1&gt;
+&lt;p&gt;Judging the performance of a forecasting model is absolutely critical. A natural way to do so is to look at how well the model predictions match with the observed values. There are a variety of ways to formally quantify the performance of a forecasting model.&lt;a href=&#34;#fn1&#34; class=&#34;footnote-ref&#34; id=&#34;fnref1&#34;&gt;&lt;sup&gt;1&lt;/sup&gt;&lt;/a&gt; Maybe the most popular is the MSE (or RMSE) which stands for (root) mean squared error. Mathematically, MSE is given by:
+&lt;span class=&#34;math display&#34;&gt;\[MSE = \frac{1}{n} \sum_{i}^n(y_i-\hat{f}(x_i))^2\]&lt;/span&gt;
+Where &lt;span class=&#34;math inline&#34;&gt;\(n\)&lt;/span&gt; is the number of observations, &lt;span class=&#34;math inline&#34;&gt;\(y_i\)&lt;/span&gt; is the observed data, and &lt;span class=&#34;math inline&#34;&gt;\(\hat{f}(x_i)\)&lt;/span&gt; is the estimated forecasting model expressed as a function of a number of regressors &lt;span class=&#34;math inline&#34;&gt;\(x_i\)&lt;/span&gt; that help predict &lt;span class=&#34;math inline&#34;&gt;\(y_i\)&lt;/span&gt;.&lt;/p&gt;
+&lt;div id=&#34;training-versus-test-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Training versus test data&lt;/h2&gt;
+&lt;p&gt;To evaluate the performance of a model, it is important to assess the fit on data that has not been used for estimation (out-of-sample forecasting). The reason for this is that it is very simple to improve in-sample fit by adding regressors, but this may result in overfitting and thus poor performance when the model is confronted to new data.&lt;a href=&#34;#fn2&#34; class=&#34;footnote-ref&#34; id=&#34;fnref2&#34;&gt;&lt;sup&gt;2&lt;/sup&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;It is thus natural to split the data in two parts: a training and a test dataset. The former is used to estimate the model’s parameters, and the latter to evaluate how well the model performs when confronted with new data.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;k-fold-cross-validation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;K-fold cross validation&lt;/h2&gt;
+&lt;p&gt;K-fold cross validation is precisely a way to split the data in a training and test dataset. The easiest way to understand k-fold cross validation is certainty to look at a graphical representation:&lt;/p&gt;
+
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;img/kfoldCV.png&#34; alt=&#34;&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Graphical representation of K-fold cross validation. Source: &lt;a href=&#34;https://stats.stackexchange.com/questions/14099/using-k-fold-cross-validation-for-time-series-model-selection&#34;&gt;Stackexchange (Jatin Garg)&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In words, k-fold cross validation amounts to separate the data in k training and testing datasets. For each fold, we use the training dataset to estimate the models’ parameters, and the test dataset to evaluate its out-of-sample performance. This allows to replicate a real life situation where the data used to estimation are not the ones we want to predict. Additionally, it also gives information on how new data affect the performance of the model. A MSE that does not decrease with each additional fold can be suggestive that the forecasting model is not appropriate for the data studied.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;application-to-us-gdp-in-r&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Application to US GDP in R&lt;/h1&gt;
+&lt;p&gt;We use macroeconomic time series from the &lt;code&gt;AER&lt;/code&gt; package. The dataset (&lt;code&gt;USMacro&lt;/code&gt;) is from the &lt;span class=&#34;citation&#34;&gt;Stock and Watson (2007)&lt;/span&gt;. It consists of 7 time series from 1957 to 2005 available at the quarterly frequency. The following commands load the data in R:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data(&amp;quot;USMacroSW&amp;quot;, package = &amp;#39;AER&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As an exercise, we decide to estimate a VAR consisting of the first 6 variables:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;t(colnames(USMacroSW)[1:6])&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]    [,2]  [,3]     [,4]    [,5]    [,6]    
+## [1,] &amp;quot;unemp&amp;quot; &amp;quot;cpi&amp;quot; &amp;quot;ffrate&amp;quot; &amp;quot;tbill&amp;quot; &amp;quot;tbond&amp;quot; &amp;quot;gbpusd&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;data_VAR = USMacroSW[, c(1:6)]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We store the optimal number of lags according to the AIC(n) criterion (equal to 6) :&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;opt.lags.AIC = vars::VARselect(data_VAR)$selection[[&amp;#39;AIC(n)&amp;#39;]]
+opt.lags.HQ = vars::VARselect(data_VAR)$selection[[&amp;#39;HQ(n)&amp;#39;]] # for later use&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We now use our function to perform a k-fold cross validation. The source code of the function can be found on my &lt;a href=&#34;https://github.com/bbcon/kfoldcv4ts/blob/master/R/accuracy.kfold.R&#34;&gt;GitHub&lt;/a&gt;) or by running &lt;code&gt;kfoldcv4ts::accuracy.kfold&lt;/code&gt; in the console once the package has been installed. In a few words, the function splits the data in k training and test folds. It then estimates a VAR on each fold and returns various out-of-sample measures for each fold. The last element of the list is the k-th fold and uses the whole dataset (minus the &lt;code&gt;n_ahead&lt;/code&gt; last observations that are used as a test dataset) for the training of the model.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;kfoldcv4ts::accuracy.kfold(df.VAR = data_VAR, k=3, n_ahead = 6, lags = opt.lags.AIC, var_index = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1]]
+##                         ME       RMSE        MAE         MPE      MAPE
+## Training set -4.269906e-17 0.07619774 0.05697584 -0.02457589  1.187002
+## Test set      1.889559e+00 1.95627730 1.88955891 33.30258643 33.302586
+##                    MASE
+## Training set 0.06163578
+## Test set     2.04410207
+## 
+## [[2]]
+##                         ME      RMSE       MAE         MPE      MAPE      MASE
+## Training set  1.147934e-17 0.2072081 0.1559196  -0.1995576  2.702903 0.1191487
+## Test set     -6.340175e-01 0.6735066 0.6340175 -11.2712537 11.271254 0.4844957
+## 
+## [[3]]
+##                         ME      RMSE       MAE        MPE     MAPE      MASE
+## Training set  1.974212e-17 0.2028920 0.1585884 -0.1710733 2.790761 0.1393353
+## Test set     -7.225542e-02 0.1404539 0.1159403 -1.2430540 2.047070 0.1018648&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We now compare the following three models in terms of MSE (using &lt;code&gt;k=3&lt;/code&gt;). &lt;code&gt;model1&lt;/code&gt; is the baseline method with the optimal number of lags chosen according to the AIC criterion while &lt;code&gt;model2&lt;/code&gt; uses the optimal number of lags according to the HQ criterion. &lt;code&gt;model3&lt;/code&gt; does not the 6th variable of the dataset to estimate the VAR.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;model1 = kfoldcv4ts::accuracy.kfold(df.VAR = data_VAR, k=3, n_ahead = 6, lags = opt.lags.AIC, var_index = 1)
+model2 = kfoldcv4ts::accuracy.kfold(df.VAR = data_VAR, k=3, n_ahead = 6, lags = opt.lags.HQ, var_index = 1)
+model3 = kfoldcv4ts::accuracy.kfold(df.VAR = data_VAR[,1:5], k=3, n_ahead = 6, lags = 6, var_index = 1)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We summarise the results in the following table:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;f.extract = function(x){x[2,2]}
+m1 = rbind(lapply(model1, f.extract))
+m2 = rbind(lapply(model2, f.extract))
+m3 = rbind(lapply(model3, f.extract))
+
+table_summary = data.frame(rbind(m1,m2,m3), row.names = c(&amp;#39;Model 1&amp;#39;, &amp;#39;Model 2&amp;#39;, &amp;#39;Model 3&amp;#39;))
+colnames(table_summary) = c(&amp;#39;k=1&amp;#39;,&amp;#39;k=2&amp;#39;,&amp;#39;k=3&amp;#39;) &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;kableExtra::kable(table_summary, caption = &amp;#39;MSE for each model and each fold&amp;#39;) %&amp;gt;% 
+  kableExtra::kable_styling()&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34;table&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;caption&gt;
+&lt;span id=&#34;tab:unnamed-chunk-12&#34;&gt;Table 1: &lt;/span&gt;MSE for each model and each fold
+&lt;/caption&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+k=1
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+k=2
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+k=3
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Model 1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1.956277
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0.6735066
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0.1404539
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Model 2
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3.321254
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0.3762237
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0.1756277
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Model 3
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1.067212
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0.4424066
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+0.1498588
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;We can note several interesting things. First, Model 1 seems to be the best performing in terms of MSE when estimated on the largest possible dataset (i.e. &lt;span class=&#34;math inline&#34;&gt;\(k=3\)&lt;/span&gt;). Additionally, we can note that more data significantly improves the fit of the model (from 1.96 to 0.14). We can also see that model 2 seems to perform particularly badly when the training dataset is relatively small (k=1). In terms of average MSE over the 3 folds, Model 3 seems to perform the best and may be considered as a good alternative to Model 1, even though it has one regressor less. This provides an example on the risk of overfitting.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;references&#34; class=&#34;section level1 unnumbered&#34;&gt;
+&lt;h1&gt;References&lt;/h1&gt;
+&lt;div id=&#34;refs&#34; class=&#34;references&#34;&gt;
+&lt;div id=&#34;ref-Stock2007&#34;&gt;
+&lt;p&gt;Stock, James H, and Mark W Watson. 2007. &lt;em&gt;Introduction to Econometrics&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+&lt;hr /&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;There exist other measures to assess the fit of a model such as the MAE (mean absolute deviation), MPE (mean percentage error) and certainly many others. The best measure is usually not absolute and often depends on the application at hand.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn2&#34;&gt;&lt;p&gt;For more information about this, read for example: &lt;a href=&#34;https://en.wikipedia.org/wiki/Bias–variance_tradeoff&#34; class=&#34;uri&#34;&gt;https://en.wikipedia.org/wiki/Bias–variance_tradeoff&lt;/a&gt;&lt;a href=&#34;#fnref2&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Iconomix : payment methods in Switzerland</title>
