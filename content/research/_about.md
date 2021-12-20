@@ -43,6 +43,6 @@ design:
 
 # 2021
 
-The Macroeconomic Implications of Financial Volatility: The Role of Uncertainty and Risk Aversion. Working Paper 2021. [Link](../../static/research/MacroImplicationFinVolatility_paper.pdf)
+*The Macroeconomic Implications of Financial Volatility: The Role of Uncertainty and Risk Aversion.* Working Paper 2021. [Link](wp/MacroImplicationFinVolatility_paper.pdf)
 
 *Under revision*
