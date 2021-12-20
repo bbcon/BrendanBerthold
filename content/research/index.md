@@ -5,6 +5,4 @@ date: "2020-01-11T"  # Add today's date.
 type: "widget_page"  # Page type is a Widget Page
 ---
 
-The macroeconomic implications of financial volatility: the role of uncertainty and risk aversion
-
 

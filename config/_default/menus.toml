@@ -10,7 +10,7 @@
   
 [[main]]
   name = "Research"
-  url = "post_fun/"
+  url = "research/"
   weight = 2  
 
 [[main]]
