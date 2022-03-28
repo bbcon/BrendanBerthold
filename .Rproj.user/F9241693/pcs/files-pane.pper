@@ -1,13 +1,13 @@
 {
     "sortOrder": [
         {
-            "columnIndex": 4,
-            "ascending": false
-        },
-        {
             "columnIndex": 2,
             "ascending": true
+        },
+        {
+            "columnIndex": 4,
+            "ascending": false
         }
     ],
-    "path": "~/Dropbox/My Computer/Website/Blogdown_project/BrendanBerthold/content/post/2021-02-27-k-fold-cross-validation-for-time-series-in-r-applications-to-var-models"
+    "path": "~/Dropbox/My Computer/Website/Blogdown_project/BrendanBerthold/themes/starter-academic"
 }
